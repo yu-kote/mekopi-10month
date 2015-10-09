@@ -12,7 +12,7 @@ Map::Map(){
 
 	for (int y = 0; y < MAP_Y; y++){
 		for (int x = 0; x < MAP_X; x++){
-			
+
 			map[y][x].size = Vec2f(10, 10);
 			map[y][x].pos.x() = map[y][x].size.x() * x;
 			map[y][x].pos.y() = map[y][x].size.y() * y;
@@ -23,12 +23,30 @@ Map::Map(){
 	}
 }
 
+Vec2f Map::getmapPos(){
+	for (int y = 0; y < MAP_Y; y++){
+		for (int x = 0; x < MAP_X; x++){
+			return map[y][x].pos;
+		}
+	}
+}
+
+Vec2f Map::getmapSize(){
+	for (int y = 0; y < MAP_Y; y++){
+		for (int x = 0; x < MAP_X; x++){
+			return map[y][x].size;
+		}
+	}
+}
+
+void Map::setPos(Vec2f speed){
+	player_speed = speed;
+}
+
+
 
 void Map::setup(){
-
-
-
-
+	player_speed = Vec2f(0, 0);
 }
 
 void Map::update(){
@@ -36,40 +54,20 @@ void Map::update(){
 	for (int y = 0; y < MAP_Y; y++){
 		for (int x = 0; x < MAP_X; x++){
 			*map_type[STAGE1] >> map[y][x].status;
-			if (map[y][x].pos.x() >= -WIDTH / 2 - draw_range && map[y][x].pos.x() <= WIDTH / 2 + draw_range
-				&& map[y][x].pos.y() >= -HEIGHT / 2 - draw_range && map[y][x].pos.y() <= HEIGHT / 2 + draw_range){
+
+			switch (map[y][x].status){
+			case AIR_BLOCK:
 
 
-				if (App::get().isPressKey('A')){
-					map[y][x].pos.x() -= 100;
-				}
-				if (App::get().isPressKey('D')){
-					map[y][x].pos.x() += 100;
-				}
+				break;
+			case BLOCK:
 
-				if (App::get().isPressKey('S')){
-					map[y][x].pos.y() -= 100;
-				}
-
-				if (App::get().isPressKey('W')){
-					map[y][x].pos.y() += 100;
-				}
-
-				
-
-				switch (map[y][x].status){
-				case AIR_BLOCK:
-
-
-					break;
-				case BLOCK:
-
-					break;
-				}
-
+				break;
 			}
 
 		}
+		
+
 	}
 	std::cout << map[0][0].pos.x() << std::endl;
 
@@ -77,6 +75,10 @@ void Map::update(){
 
 
 void Map::draw(){
+
+
+	glPushMatrix();
+	glTranslated(-player_speed.x(), -player_speed.y(), 0);
 	for (int y = 0; y < MAP_Y; y++){
 		for (int x = 0; x < MAP_X; x++){
 			*map_type[STAGE1] >> map[y][x].status;
@@ -99,4 +101,9 @@ void Map::draw(){
 
 		}
 	}
+	glPopMatrix();
 }
+
+
+
+

@@ -38,18 +38,19 @@ private:
 	Mapdate map[MAP_Y][MAP_X];
 	std::ifstream* map_type[STAGE_MAX];
 	
-
 	const int draw_range = 300;
-
+	Vec2f player_speed;
 
 public:
 
-	Map();
+	Vec2f getmapPos();
+	Vec2f getmapSize();
+	void setPos(Vec2f speed);
 
+	Map();
 
 	void setup();
 	void update();
 	void draw();
-
 
 };
