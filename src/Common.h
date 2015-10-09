@@ -36,8 +36,18 @@ struct TextureObject : Object{
 	Vec2f cut_pos;
 	Vec2f cut_size;
 	Texture picture;
+	float angle;
+	Vec2f zoom;
+	Vec2f center;
 };
 
+struct PlayerCar : TextureObject{
+	int speed;
+	float direction_change_speed;
+	bool can_direction_change;
+	bool isdirection_changing;
+
+};
 
 
 /*‘‚«•û‚Ì—áƒNƒ‰ƒX

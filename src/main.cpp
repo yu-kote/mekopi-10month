@@ -6,6 +6,8 @@
 // メインプログラム
 // 
 int main() {
+	App::get();
+
 	Scene scene;
 
 	scene.setup();
