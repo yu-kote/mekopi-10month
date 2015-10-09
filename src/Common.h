@@ -41,13 +41,6 @@ struct TextureObject : Object{
 	Vec2f center;
 };
 
-struct PlayerCar : TextureObject{
-	int speed;
-	float direction_change_speed;
-	bool can_direction_change;
-	bool isdirection_changing;
-
-};
 
 
 /*‘‚«•û‚Ì—áƒNƒ‰ƒX

@@ -1,6 +1,17 @@
 #pragma once
 #include "lib/framework.hpp"
 #include "Common.h"
+
+
+struct PlayerCar : TextureObject{
+	int speed;
+	float direction_change_speed;
+	bool can_direction_change;
+	bool isdirection_changing;
+
+};
+
+
 class Player{
 private:
 
