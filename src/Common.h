@@ -1,5 +1,7 @@
 #pragma once
 #include "lib\framework.hpp"
+#include <iostream>
+#include <fstream>
 
 
 enum WindowSize{

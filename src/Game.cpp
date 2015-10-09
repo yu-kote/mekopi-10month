@@ -2,27 +2,19 @@
 
 
 void Game::setup(){
-
-
-
-
+	
+	map.setup();
 }
 
 void Game::update(){
 
-
-
-
+	map.update();
 }
 
 
 void Game::draw(){
-
-	drawFillBox(0, 0, 100, 100, Color::red);
-
-
-
-
+	
+	map.draw();
 }
 
 SceneName Game::shift(){
