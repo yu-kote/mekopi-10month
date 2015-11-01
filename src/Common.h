@@ -2,11 +2,13 @@
 #include "lib\framework.hpp"
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <string>
 
 
 enum WindowSize{
 	WIDTH = 1024,
-	HEIGHT = 1024,
+	HEIGHT = 768,
 };
 
 
@@ -16,7 +18,7 @@ private:
 
 public:
 	static AppEnv& get(){
-		static AppEnv env(WIDTH, HEIGHT);
+		static AppEnv env(WIDTH, HEIGHT,false,true);
 		return env;
 	}
 };

@@ -18,15 +18,12 @@ void Scene::draw(){
 	switch (scene_move){
 	case TITLE:
 		title.draw();
-
 		break;
 	case SELECT:
 		select.draw();
-
 		break;
 	case GAME:
 		game.draw();
-
 		break;
 	}
 
@@ -39,15 +36,12 @@ void Scene::update(){
 	switch (scene_move){
 	case TITLE:
 		title.update();
-
 		break;
 	case SELECT:
 		select.update();
-
 		break;
 	case GAME:
 		game.update();
-
 		break;
 	}
 }
@@ -60,6 +54,7 @@ void Scene::shift(){
 	case TITLE:
 		if (App::get().isPushKey(GLFW_KEY_5)){
 			scene_move = title.shift();
+			App::get().flushInput();
 		}
 
 		break;
